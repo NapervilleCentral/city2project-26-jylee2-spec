@@ -1,7 +1,7 @@
 //********************************************************************
 //  LineUp.java       Author: Lewis/Loftus/Cocking
 //
-//  Demonstrates the use of a graphical object.
+//  Lineup is your city - add objects such as building, road, cars, etc
 //********************************************************************
 
     import java.awt.*;
@@ -13,14 +13,16 @@
 
 public class LineUp extends JComponent //implements Runnable
 {
-   private final int APPLET_WIDTH = 400;    //Size constants
-   private final int APPLET_HEIGHT = 150;
+   //private final int APPLET_WIDTH = 400;    //Size constants
+   //private final int APPLET_HEIGHT = 150;
    private final int HEIGHT_MIN = 100;
    private final int VARIANCE = 45;
    Random generator = new Random();
    //Graphics page;
 
    //private StickFigure2 figure1 = new StickFigure2(100,150,Color.red,120);
+   
+   // adding "object" to your city
    private StickFigure figure1,figure2, figure3, figure4;
    private Floor ground;
    private int running = 0;
@@ -42,20 +44,21 @@ public class LineUp extends JComponent //implements Runnable
       //x, y, color, height
       figure2 = new StickFigure(150, 150, Color.green, h2);
       figure3 = new StickFigure(200, 150, Color.cyan, h3);
-      figure4 = new StickFigure(250, 150, Color.yellow, h4);
+      figure4 = new StickFigure(250, 150, Color.black, h4);
+      
 
       ground = new Floor();
 
-      Thread t1 = new Thread(ground);
-      t1.start();
-      Thread t2 = new Thread(figure2);
-      t2.start();
+      //Thread t1 = new Thread(ground);
+      //t1.start();
+      //Thread t2 = new Thread(figure2);
+      //t2.start();
       //Thread t3 = new Thread(figure3);
       //t3.start();
 
 
       //setBackground (Color.black); //sets the color of background
-      setSize (600, 800); //Sets up applet window
+      //setSize (600, 800); //Sets up applet window
 
       //figure2.draw(page);
 
@@ -67,6 +70,7 @@ public class LineUp extends JComponent //implements Runnable
    //-----------------------------------------------------------------
    public void paintComponent(Graphics g)
     {
+        // this is the graphics to draw your objects
         Graphics2D page = (Graphics2D) g;
        //page = this.page;
       ground.draw(page);

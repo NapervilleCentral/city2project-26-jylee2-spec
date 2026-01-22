@@ -101,7 +101,10 @@ public class StickFigure extends JComponent implements Runnable
 
        }
 
-       
+       /**
+        * runnable that animates my object
+        * will be called a number of times while running
+        */
        public void run()
         {
         while(true){
