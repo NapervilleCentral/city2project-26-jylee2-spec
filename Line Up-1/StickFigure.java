@@ -17,6 +17,7 @@ public class StickFigure extends JComponent implements Runnable
        private int baseY;     // floor (bottom of feet)
        private Color color;   // color of stick figure
        private int height;    // height of stick figure
+       private Color eyecolor;
        Random generator = new Random();
 
        //-----------------------------------------------------------------
@@ -28,6 +29,7 @@ public class StickFigure extends JComponent implements Runnable
           baseY = bottom;
           color = shade;
           height = size;
+          eyecolor = Color.yellow;
        }
 
        /**
@@ -79,7 +81,7 @@ public class StickFigure extends JComponent implements Runnable
     }
 
        //-----------------------------------------------------------------
-       //  Draws this figure relative to baseX, baseY, and height.
+       // !!! Draws this figure relative to baseX, baseY, and height.
        //-----------------------------------------------------------------
        public void draw (Graphics2D page)
        {
@@ -87,8 +89,15 @@ public class StickFigure extends JComponent implements Runnable
                                      //y needs to move, not height.
 
           page.setColor (color);
-          //                 x     y    h  w
-          page.drawOval(baseX-10, top, 20, 20);// head
+          //                 x       y    w   h
+          // page.drawOval(baseX-10, top, 20, 30);// head
+          page.fillOval(baseX-10, top, 20, 30);// head
+          page.setColor (Color.yellow);
+          page.fillOval(baseX-5,top+5,3,3);
+
+          
+          page.setColor (eyecolor);
+
 
           page.drawLine(baseX, top+20, baseX, baseY-30);// trunk
                                     //remember, increase y actually moves closer to bottom
@@ -107,13 +116,19 @@ public class StickFigure extends JComponent implements Runnable
         */
        public void run()
         {
+            int count = 0;
         while(true){
             int newHeight = 100 + generator.nextInt(45);
             height = newHeight;
+            
             try{
-                Thread.sleep(17);
+                Thread.sleep(17); // 36 fps
             }catch (Exception e){}
-
+            if (count %5 == 0)
+                eyecolor = Color.yellow;
+            else
+                eyecolor = Color.green;
+            count ++;
             System.out.print(height);
         }
 

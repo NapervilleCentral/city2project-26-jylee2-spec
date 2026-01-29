@@ -22,7 +22,7 @@ public class LineUp extends JComponent //implements Runnable
 
    //private StickFigure2 figure1 = new StickFigure2(100,150,Color.red,120);
    
-   // adding "object" to your city
+   // defining "object" to your city
    private StickFigure figure1,figure2, figure3, figure4;
    private Floor ground;
    private int running = 0;
@@ -46,17 +46,20 @@ public class LineUp extends JComponent //implements Runnable
       figure3 = new StickFigure(200, 150, Color.cyan, h3);
       figure4 = new StickFigure(250, 150, Color.black, h4);
       
+      
 
-      ground = new Floor();
+      ground = new Floor(50, 120, 200, 60);
 
-      //Thread t1 = new Thread(ground);
-      //t1.start();
-      //Thread t2 = new Thread(figure2);
-      //t2.start();
-      //Thread t3 = new Thread(figure3);
-      //t3.start();
+      Thread t1 = new Thread(ground);
+      t1.start();
+      Thread t2 = new Thread(figure2); // threads will start the animating process
+      t2.start();
+      Thread t3 = new Thread(figure3);
+      t3.start();
 
-
+      // put a figure in a thread to animate!
+      Thread t4 = new Thread (figure1);
+      t4.start();
       //setBackground (Color.black); //sets the color of background
       //setSize (600, 800); //Sets up applet window
 
@@ -66,14 +69,14 @@ public class LineUp extends JComponent //implements Runnable
    }
 
    //-----------------------------------------------------------------
-   //  Paints the stick figures on the applet.
+   //  Paints the stick figures Graphics Page - call from component
    //-----------------------------------------------------------------
    public void paintComponent(Graphics g)
     {
         // this is the graphics to draw your objects
         Graphics2D page = (Graphics2D) g;
        //page = this.page;
-      ground.draw(page);
+      ground.draw(page); // oder of drawing matters, shift position
       figure1.draw (page);
       figure2.draw (page);
       figure3.draw (page);

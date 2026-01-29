@@ -6,6 +6,7 @@
  * @version (a version number or a date)
  */
 import java.util.*;
+//threads need Runnable - to animate any object
 public class Apple implements Runnable
 {
     // instance variables - replace the example below with your own

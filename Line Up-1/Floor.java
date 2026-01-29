@@ -18,9 +18,12 @@ public class Floor extends JComponent implements Runnable
     /**
      * Constructor for objects of class Floor
      */
-    public Floor()
+    public Floor(int x,int y,int w,int h)
     {
-      
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
     }
 
     @Override
@@ -38,12 +41,26 @@ public class Floor extends JComponent implements Runnable
        //-----------------------------------------------------------------
        public void draw (Graphics2D page)
        {
+          page.fillRect(x,y,w,h);
           
        }
        
     public void run()
     {
-       
+        int count = 0;
+       while (true)
+       {
+           if (count%2 == 0)
+           {
+            this.x += 10;}
+            else
+            this.x -= 10;
+            count ++;
+            try{
+                Thread.sleep(17); // 36 fps
+            }catch (Exception e){}
+
+        }
     }
   
 }
