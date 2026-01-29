@@ -23,7 +23,7 @@ public class CityscapeViewer
         // create and configure the frame (window) for the program
         JFrame frame = new JFrame();
         
-        frame.setSize(400 /* x */, 300 /* y */);
+        frame.setSize(400 /* x */, 300 /* y */); // sets size of window
         frame.setTitle("Cityscape");
         frame.setBackground(Color.red);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -36,9 +36,8 @@ public class CityscapeViewer
         CityscapeComponent component = new CityscapeComponent();
         
         
-        
-        frame.add(component);
-        
+        LineUp row = new LineUp();
+        frame.add(component);        frame.add(row); // changes the what moving parts are being used
         
         
         // make the frame visible which will result in the paintComponent method being invoked on the
@@ -49,9 +48,8 @@ public class CityscapeViewer
         for( int seconds = 0; seconds < ANIMATION_TIME_IN_SECONDS; seconds++ )
         {
             row.nextFrame();
-            Thread.sleep( 100 );
+            Thread.sleep( 100 ); // 1000 is 1 second, how long to pause the animation
         }
-        
     }
 
 }
