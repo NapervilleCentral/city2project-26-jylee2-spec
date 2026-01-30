@@ -25,6 +25,7 @@ public class LineUp extends JComponent //implements Runnable
    // defining "object" to your city
    private Objects figure1,figure2, figure3, figure4;
    private Floor ground;
+   private Background setting;
    private int running = 0;
 
    //-----------------------------------------------------------------
@@ -39,20 +40,24 @@ public class LineUp extends JComponent //implements Runnable
       h3 = HEIGHT_MIN + generator.nextInt(VARIANCE);
       h4 = HEIGHT_MIN + generator.nextInt(VARIANCE);
 
-      ground = new Floor(50, 120, 200, 60); // makes cement road 
+      ground = new Floor(0, 340, 500 ,60); // makes grass floor , cement road, and side walk, in oder of being created
+      
+      
       
       figure1 =  new Objects (100, 150, Color.red, h1); // building on the left
       figure2 =  new Objects (100, 150, Color.red, h2); // building in the middle
       figure3 =  new Objects (100, 150, Color.red, h3); // building on the right
       figure4 =  new Objects (100, 150, Color.red, h4); // Side walk in between buildings and road
+      // the first thing you paint will be overlayed by the next thing, ORDER MATTERS!!!!
+      Thread t0 = new Thread(setting);
       
-      Thread t1 = new Thread(ground);
+      Thread t1 = new Thread(ground); 
       t1.start();
       
       //x, y, color, height
       
-      //setBackground (Color.black); //sets the color of background
-      //setSize (600, 800); //Sets up applet window
+      setBackground (Color.black); //sets the color of background
+      setSize (600, 800); //Sets up applet window
 
       //figure2.draw(page);
 

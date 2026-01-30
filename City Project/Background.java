@@ -10,7 +10,7 @@ import java.awt.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Floor extends JComponent implements Runnable
+public class Background extends JComponent implements Runnable
 {
     // instance variables - replace the example below with your own
     private int x,y,w,h;
@@ -18,7 +18,7 @@ public class Floor extends JComponent implements Runnable
     /**
      * Constructor for objects of class Floor
      */
-    public Floor(int x,int y,int w,int h)
+    public Background(int x,int y,int w,int h)
     {
         this.x = x;
         this.y = y;
@@ -42,17 +42,8 @@ public class Floor extends JComponent implements Runnable
        public void draw (Graphics2D page)
        {
           // choose the color and then fill object
-          Color GrassColor = new Color(179,221,159);
-          Color CementColor = new Color(154,146,144);
-          Color SideWalk = new Color(211,211,211); 
-          
-          page.setColor(GrassColor); // makes grass floor
-          page.fillRect(0, 400, 500, 60);
-          
-          page.setColor(SideWalk); // makes side walk
-          page.fillRect(0, 310, 500, 30);
-          
-          page.setColor(CementColor); // makes road
+          Color Daytime = new Color(179,221,159);
+          page.setColor(Daytime); // makes road
           page.fillRect(x,y,w,h);
           
        }
