@@ -23,9 +23,10 @@ public class LineUp extends JComponent //implements Runnable
    //private StickFigure2 figure1 = new StickFigure2(100,150,Color.red,120);
    
    // defining "object" to your city
-   private Objects figure1,figure2, figure3, figure4;
+   private Buildings figure1,figure2, figure3;
    private Floor ground;
    private Background setting;
+   private Windows frame;
    private int running = 0;
 
    //-----------------------------------------------------------------
@@ -40,19 +41,22 @@ public class LineUp extends JComponent //implements Runnable
       h3 = HEIGHT_MIN + generator.nextInt(VARIANCE);
       h4 = HEIGHT_MIN + generator.nextInt(VARIANCE);
 
+      setting = new Background(0, 0, 500,350);
       ground = new Floor(0, 340, 500 ,60); // makes grass floor , cement road, and side walk, in oder of being created
       
       
       
-      figure1 =  new Objects (100, 150, Color.red, h1); // building on the left
-      figure2 =  new Objects (100, 150, Color.red, h2); // building in the middle
-      figure3 =  new Objects (100, 150, Color.red, h3); // building on the right
-      figure4 =  new Objects (100, 150, Color.red, h4); // Side walk in between buildings and road
+      figure1 =  new Buildings (270, 225, 190, 85); // building on the left
+      frame = new Windows (285, 235, 35, 30);
       // the first thing you paint will be overlayed by the next thing, ORDER MATTERS!!!!
       Thread t0 = new Thread(setting);
+      t0.start();
       
       Thread t1 = new Thread(ground); 
       t1.start();
+      
+      Thread t2 = new Thread(frame);
+      t2.start();
       
       //x, y, color, height
       
@@ -72,11 +76,10 @@ public class LineUp extends JComponent //implements Runnable
         // this is the graphics to draw your objects
         Graphics2D page = (Graphics2D) g;
        //page = this.page;
-      ground.draw(page); // oder of drawing matters, shift position
+      setting.draw(page);
+      ground.draw(page); // order of drawing matters, shift position
       figure1.draw (page);
-      figure2.draw (page);
-      figure3.draw (page);
-      figure4.draw (page);
+      frame.draw(page);
       //ground.draw(page);
 
       //Thread t1 = new Thread(ground);
