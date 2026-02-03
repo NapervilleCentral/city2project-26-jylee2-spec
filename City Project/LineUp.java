@@ -47,7 +47,7 @@ public class LineUp extends JComponent //implements Runnable
       
       
       figure1 =  new Buildings (270, 225, 190, 85); // building on the left
-      frame = new Windows (285, 235, 35, 30);
+      frame = new Windows (245, 235, 25, 20, Color.yellow);
       // the first thing you paint will be overlayed by the next thing, ORDER MATTERS!!!!
       Thread t0 = new Thread(setting);
       t0.start();

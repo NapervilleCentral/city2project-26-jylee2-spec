@@ -14,16 +14,23 @@ public class Windows extends JComponent implements Runnable
 {
     // instance variables - replace the example below with your own
     private int x,y,w,h;
+    private Color color; // changes color in day and night cycle
+    int x1, y1, w1, h1; // 2nd row of windows on right side
+    int x2, y2, w2, h2; // window row in middle house
+    int x3, y3, w3, h3; // 1st row windows in red building
+    int x4, y4, w4, h4; // 2nd row windows in red building
+    
 
     /**
      * Constructor for objects of class Floor
      */
-    public Windows(int x,int y,int w,int h)
+    public Windows(int x,int y,int w,int h, Color time)
     {
         this.x = x;
         this.y = y;
         this.w = w;
         this.h = h;
+        color = time;
     }
 
     @Override
@@ -43,41 +50,86 @@ public class Windows extends JComponent implements Runnable
        {
           // choose the color and then fill object
           Color window = new Color(212, 208, 200);
-          page.setColor(window); // makes road
+          page.setColor(window); 
           page.fillRect(x,y,w,h);
           
-          for (int count = 0 ; count <= 6; count++)
+          // creates windows in right most building
+          for (int count = 0 ; count <= 3; count++)
           {
             if (count == 3)
             {
-             x = this.x;
-             y += 70;
+             x = 285;
             }
             page.fillRect(x,y,w,h);
             x += 50;
+          }
+          x1 = 285;
+          y1 = 275;
+          w1 = 25;
+          h1 = 20;
+          for (int count = 0 ; count <= 3; count++)
+          {
+              page.fillRect(x1, y1, w1, h1);
+              x1 += 50;
             
           }
+          // creates windows in middle building
+          x2 = 190;
+          y2 = 205;
+          w2 = 25;
+          h2 = 20;
+          for (int count = 0; count <= 1; count++)
+          {
           
+              page.fillRect(x2,y2,w2,h2);
+              y2 += 45;
+              
+          }
+          // windows in the left building
+          x3 = 65;
+          y3 = 225;
+          w3 = 25;
+          h3 = 20;
+          for (int count = 0; count <= 1; count++)
+          {
+          
+              page.fillRect(x3, y3, w3, h3);
+              x3 += 40;
+          }
+          
+          x4 = 65;
+          y4 = 265;
+          w4 = 25;
+          h4 = 20;
+          for (int count = 0; count <= 1; count++)
+          {
+              
+              page.fillRect(x4, y4, w4, h4);
+              x4 += 40;
+          }
        }
        
     public void run()
     {
         int count = 0;
-        /*
+        
        while (true)
        {
            if (count%2 == 0)
            {
-            this.x += 10;}
+            this.x += 10;
+           }
             else
+            {
             this.x -= 10;
+            }
             count ++;
             try{
                 Thread.sleep(17); // 36 fps
             }catch (Exception e){}
             
 
-        } */
+        } 
     }
   
 }
