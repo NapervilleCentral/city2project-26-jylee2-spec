@@ -14,7 +14,7 @@ public class Windows extends JComponent implements Runnable
 {
     // instance variables - replace the example below with your own
     private int x,y,w,h;
-    private Color color; // changes color in day and night cycle
+    int time = 0;
     int x1, y1, w1, h1; // 2nd row of windows on right side
     int x2, y2, w2, h2; // window row in middle house
     int x3, y3, w3, h3; // 1st row windows in red building
@@ -24,13 +24,12 @@ public class Windows extends JComponent implements Runnable
     /**
      * Constructor for objects of class Floor
      */
-    public Windows(int x,int y,int w,int h, Color time)
+    public Windows(int x,int y,int w,int h)
     {
         this.x = x;
         this.y = y;
         this.w = w;
         this.h = h;
-        color = time;
     }
 
     @Override
@@ -49,8 +48,16 @@ public class Windows extends JComponent implements Runnable
        public void draw (Graphics2D page)
        {
           // choose the color and then fill object
+         
           Color window = new Color(212, 208, 200);
           page.setColor(window); 
+          
+          
+          if (time >= 30) // THIS DOES WORK now figure out how to time with day night cycle
+          {
+              page.setColor(Color.yellow);
+          }
+          
           page.fillRect(x,y,w,h);
           
           // creates windows in right most building
@@ -107,29 +114,14 @@ public class Windows extends JComponent implements Runnable
               page.fillRect(x4, y4, w4, h4);
               x4 += 40;
           }
+          time++;
        }
+    
        
     public void run()
     {
-        int count = 0;
         
-       while (true)
-       {
-           if (count%2 == 0)
-           {
-            this.x += 10;
-           }
-            else
-            {
-            this.x -= 10;
-            }
-            count ++;
-            try{
-                Thread.sleep(17); // 36 fps
-            }catch (Exception e){}
-            
-
-        } 
+       
     }
   
 }

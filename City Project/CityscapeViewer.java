@@ -48,7 +48,7 @@ public class CityscapeViewer
         for( int seconds = 0; seconds < ANIMATION_TIME_IN_SECONDS; seconds++ )
         {
             row.nextFrame();
-            Thread.sleep( 100 ); // 1000 is 1 second, how long to pause the animation
+            Thread.sleep( 300 ); // 1000 is 1 second, how long to pause the animation
         }
     }
 

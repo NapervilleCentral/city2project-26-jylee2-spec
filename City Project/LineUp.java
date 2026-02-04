@@ -47,7 +47,7 @@ public class LineUp extends JComponent //implements Runnable
       
       
       figure1 =  new Buildings (270, 225, 190, 85); // building on the left
-      frame = new Windows (245, 235, 25, 20, Color.yellow);
+      frame = new Windows (245, 235, 25, 20);
       // the first thing you paint will be overlayed by the next thing, ORDER MATTERS!!!!
       Thread t0 = new Thread(setting);
       t0.start();
@@ -78,7 +78,7 @@ public class LineUp extends JComponent //implements Runnable
        //page = this.page;
       setting.draw(page);
       ground.draw(page); // order of drawing matters, shift position
-      figure1.draw (page);
+      figure1.draw(page);
       frame.draw(page);
       //ground.draw(page);
 
