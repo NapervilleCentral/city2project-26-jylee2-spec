@@ -27,6 +27,7 @@ public class LineUp extends JComponent //implements Runnable
    private Floor ground;
    private Background setting;
    private Windows frame;
+   private DNcycle Cycles;
    private int running = 0;
 
    //-----------------------------------------------------------------
@@ -43,6 +44,7 @@ public class LineUp extends JComponent //implements Runnable
 
       setting = new Background(0, 0, 500,350);
       ground = new Floor(0, 340, 500 ,60); // makes grass floor , cement road, and side walk, in oder of being created
+      Cycles = new DNcycles (); // adjust to output of window
       
       
       
@@ -57,6 +59,9 @@ public class LineUp extends JComponent //implements Runnable
       
       Thread t2 = new Thread(frame);
       t2.start();
+
+      THread t3 = new Thread(Cycle);
+       t3.start();
       
       //x, y, color, height
       
