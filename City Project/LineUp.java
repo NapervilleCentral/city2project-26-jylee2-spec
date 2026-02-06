@@ -44,7 +44,7 @@ public class LineUp extends JComponent //implements Runnable
 
       setting = new Background(0, 0, 500,350);
       ground = new Floor(0, 340, 500 ,60); // makes grass floor , cement road, and side walk, in oder of being created
-      Cycles = new DNcycle (1,1,1,1); // adjust to output of window
+      Cycles = new DNcycle (0,90,150,150); // adjust to output of window
       
       
       
@@ -85,6 +85,7 @@ public class LineUp extends JComponent //implements Runnable
       ground.draw(page); // order of drawing matters, shift position
       figure1.draw(page);
       frame.draw(page);
+      Cycles.draw(page);
       //ground.draw(page);
 
       //Thread t1 = new Thread(ground);

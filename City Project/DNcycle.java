@@ -50,6 +50,7 @@ public class DNcycle extends JComponent implements Runnable
           // choose the color and then fill object
          
           page.setColor(Color.yellow);
+          page.fillOval(x, y, w, h);
        }
     
        
