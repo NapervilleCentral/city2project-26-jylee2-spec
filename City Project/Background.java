@@ -13,7 +13,7 @@ import java.awt.*;
 public class Background extends JComponent implements Runnable
 {
     // instance variables - replace the example below with your own
-    private int x,y,w,h;
+    private int x,y,w,h, time = 0, max = 180;
 
     /**
      * Constructor for objects of class Floor
@@ -45,7 +45,19 @@ public class Background extends JComponent implements Runnable
           Color Daytime = new Color(102,153,204);
           page.setColor(Daytime); // makes road
           page.fillRect(x,y,w,h);
-          
+          for (int d = 30; d <= max; d += 30)
+              {
+                  int count = 0;
+                  if (time == d && count % 2 == 0)
+                  {
+                      page.setColor(Color.black);
+                  }
+                  else if (time == d && count % 2 == 1)
+                  {
+                      page.setColor(Daytime);
+                  }
+                  count++;
+              }
        }
        
     public void run()
