@@ -42,14 +42,14 @@ public class LineUp extends JComponent //implements Runnable
       h3 = HEIGHT_MIN + generator.nextInt(VARIANCE);
       h4 = HEIGHT_MIN + generator.nextInt(VARIANCE);
 
-      setting = new Background(0, 0, 500,350);
-      ground = new Floor(0, 340, 500 ,60); // makes grass floor , cement road, and side walk, in oder of being created
-      Cycles = new DNcycle (0,90,150,150); // adjust to output of window
+      setting = new Background(300, 600, 500,350); // + 300 x and y
+      ground = new Floor(300, 640, 500 ,60); // makes grass floor , cement road, and side walk, in oder of being created
+      Cycles = new DNcycle (300,390,150,150); // adjust to output of window
       
       
       
-      figure1 =  new Buildings (270, 225, 190, 85); // building on the left
-      frame = new Windows (245, 235, 25, 20);
+      figure1 =  new Buildings (570, 525, 190, 85); // building on the left
+      frame = new Windows (545, 535, 25, 20);
       // the first thing you paint will be overlayed by the next thing, ORDER MATTERS!!!!
       Thread t0 = new Thread(setting);
       t0.start();
