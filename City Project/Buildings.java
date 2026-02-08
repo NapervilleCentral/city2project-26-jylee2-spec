@@ -45,12 +45,12 @@ public class Buildings extends JComponent implements Runnable
           // Left most building
           Color brick = new Color(188, 74, 60);
           page.setColor(brick);
-          page.fillRect(50, 215, 85, 95);
+          page.fillRect(350, 515, 85, 95);
           
           // Middle building
           Color officegrey = new Color(90,91,93);
           page.setColor(officegrey);
-          page.fillRect(175, 190, 55, 120);
+          page.fillRect(475, 490, 55, 120);
           // Right most building
           
           page.fillRect(x,y,w,h);
