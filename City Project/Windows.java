@@ -70,13 +70,13 @@ public class Windows extends JComponent implements Runnable
           {
             if (count == 3)
             {
-             x = 585;
+             x = 580;
             }
             page.fillRect(x,y,w,h);
             x += 50;
           }
-          x1 = 585;
-          y1 = 330;
+          x1 = 580;
+          y1 = 335;
           w1 = 25;
           h1 = 20;
           for (int count = 0 ; count <= 3; count++)
@@ -98,7 +98,7 @@ public class Windows extends JComponent implements Runnable
               
           }
           // windows in the left building
-          x3 = 365;
+          x3 = 360;
           y3 = 330;
           w3 = 25;
           h3 = 20;
@@ -109,7 +109,7 @@ public class Windows extends JComponent implements Runnable
               x3 += 40;
           }
           
-          x4 = 365;
+          x4 = 360;
           y4 = 375;
           w4 = 25;
           h4 = 20;
