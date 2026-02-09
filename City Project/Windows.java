@@ -48,14 +48,19 @@ public class Windows extends JComponent implements Runnable
        public void draw (Graphics2D page)
        {
           // choose the color and then fill object
-         
+          int flash;
+          Random chance = new Random ();
+          flash = chance.nextInt(101);
           Color window = new Color(212, 208, 200);
-          page.setColor(window); 
+          if (time <= 60 || time >= 121)
+              page.setColor(window);
           
           
-          if (time >= 30) // THIS DOES WORK now figure out how to time with day night cycle
+          if (time >= 61 && time <= 120) // THIS DOES WORK now figure out how to time with day night cycle
           {
               page.setColor(Color.yellow);
+              if (flash %2 == 0)
+                  page.setColor(window);
           }
           
           page.fillRect(x,y,w,h);
@@ -71,7 +76,7 @@ public class Windows extends JComponent implements Runnable
             x += 50;
           }
           x1 = 585;
-          y1 = 575;
+          y1 = 330;
           w1 = 25;
           h1 = 20;
           for (int count = 0 ; count <= 3; count++)
@@ -82,7 +87,7 @@ public class Windows extends JComponent implements Runnable
           }
           // creates windows in middle building
           x2 = 490;
-          y2 = 505;
+          y2 = 300;
           w2 = 25;
           h2 = 20;
           for (int count = 0; count <= 1; count++)
@@ -94,7 +99,7 @@ public class Windows extends JComponent implements Runnable
           }
           // windows in the left building
           x3 = 365;
-          y3 = 525;
+          y3 = 330;
           w3 = 25;
           h3 = 20;
           for (int count = 0; count <= 1; count++)
@@ -105,7 +110,7 @@ public class Windows extends JComponent implements Runnable
           }
           
           x4 = 365;
-          y4 = 565;
+          y4 = 375;
           w4 = 25;
           h4 = 20;
           for (int count = 0; count <= 1; count++)

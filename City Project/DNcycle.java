@@ -15,10 +15,7 @@ public class DNcycle extends JComponent implements Runnable
     // instance variables - replace the example below with your own
     private int x,y,w,h;
     int time = 0;
-    int x1, y1, w1, h1; // 2nd row of windows on right side
-    int x2, y2, w2, h2; // window row in middle house
-    int x3, y3, w3, h3; // 1st row windows in red building
-    int x4, y4, w4, h4; // 2nd row windows in red building
+    // 
     
 
     /**
@@ -48,9 +45,44 @@ public class DNcycle extends JComponent implements Runnable
        public void draw (Graphics2D page)
        {
           // choose the color and then fill object
-         
+          int count = 1;
           page.setColor(Color.yellow);
+          // 7 seconds before setting shift
+          if(time >= 60 && time <= 120)
+          {
+                page.setColor(Color.white);
+          }
+          if (time == 60)
+          {
+              x = 150;
+              y = 270;
+          }
+          if (time == 120)
+          {
+              x = 150;
+              y = 270;
+          }
+          if (time >= 120 && time <= 180)
+          {
+              page.setColor(Color.yellow);  
+          }
+          
           page.fillOval(x, y, w, h);
+          
+          if (x <= 475)
+          {
+              x+= 13;
+              y-= 6;
+          }
+          if (x >= 475)
+          {
+             x += 13;
+             y += 5;
+          }
+          
+          
+          
+          time ++;
        }
     
        

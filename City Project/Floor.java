@@ -47,10 +47,10 @@ public class Floor extends JComponent implements Runnable
           Color SideWalk = new Color(211,211,211); 
           
           page.setColor(GrassColor); // makes grass floor
-          page.fillRect(300, 700, 500, 60);
+          page.fillRect(300, 500, 500, 60);
           
           page.setColor(SideWalk); // makes side walk
-          page.fillRect(300, 610, 500, 30);
+          page.fillRect(300, 410, 500, 30);
           
           page.setColor(CementColor); // makes road
           page.fillRect(x,y,w,h);

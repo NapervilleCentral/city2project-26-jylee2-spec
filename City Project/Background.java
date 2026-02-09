@@ -42,8 +42,15 @@ public class Background extends JComponent implements Runnable
        public void draw (Graphics2D page)
        {
           // choose the color and then fill object
+          int track = 1;
           Color Daytime = new Color(102,153,204);
-          page.setColor(Daytime); // makes road
+           // makes road
+          if (time <= 60)
+              page.setColor(Daytime);
+          if (time > 60 && time <= 120)
+              page.setColor(Color.black);
+          if (time > 120)
+              page.setColor(Daytime);
           page.fillRect(x,y,w,h);
           for (int d = 30; d <= max; d += 30)
               {
@@ -58,6 +65,7 @@ public class Background extends JComponent implements Runnable
                   }
                   count++;
               }
+          time ++;
        }
        
     public void run()

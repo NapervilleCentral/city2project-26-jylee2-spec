@@ -42,14 +42,14 @@ public class LineUp extends JComponent //implements Runnable
       h3 = HEIGHT_MIN + generator.nextInt(VARIANCE);
       h4 = HEIGHT_MIN + generator.nextInt(VARIANCE);
 
-      setting = new Background(300, 600, 500,350); // + 300 x and y
-      ground = new Floor(300, 640, 500 ,60); // makes grass floor , cement road, and side walk, in oder of being created
-      Cycles = new DNcycle (300,390,150,150); // adjust to output of window
+      setting = new Background(300, 200, 500,350); // + 300 x and y
+      ground = new Floor(300, 440, 500 ,60); // makes grass floor , cement road, and side walk, in oder of being created
+      Cycles = new DNcycle (150,270,80,80); // adjust to output of window
       
       
       
-      figure1 =  new Buildings (570, 525, 190, 85); // building on the left
-      frame = new Windows (545, 535, 25, 20);
+      figure1 =  new Buildings (570, 325, 190, 85); // building on the left
+      frame = new Windows (585, 375, 25, 20);
       // the first thing you paint will be overlayed by the next thing, ORDER MATTERS!!!!
       Thread t0 = new Thread(setting);
       t0.start();
@@ -66,7 +66,7 @@ public class LineUp extends JComponent //implements Runnable
       //x, y, color, height
       
       setBackground (Color.black); //sets the color of background
-      setSize (600, 800); //Sets up applet window
+      setSize (1200, 1500); //Sets up applet window
 
       //figure2.draw(page);
 
