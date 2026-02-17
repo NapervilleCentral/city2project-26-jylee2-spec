@@ -3,7 +3,7 @@ import java.awt.*;
 
 /**
  * Class that contains the main method for the program and creates the frame containing the component.
- * 
+ * IS UPLOADED TO CLOUD
  * @author gcschmit
  * @version 18 July 2014
  */
